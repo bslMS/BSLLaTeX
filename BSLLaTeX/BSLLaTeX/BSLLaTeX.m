@@ -2,6 +2,14 @@
 
 (* Created by the Wolfram Workbench 27.04.2017 *)
 
+(* :Title: BSLLaTeX *)
+(* :Author: Guido Wolf Reichert <gwr@bsl-support.de> *)
+(* :Context: BSLLaTeX` *)
+(* :Version: 0.0.1 *)
+(* :Date: 2017-04-27 *)
+(* :Mathematica Version: 11.1 *)
+(* :Copyright: (c) 2017 Guido W. Reichert *)
+
 BeginPackage["BSLLaTeX`", { "MaTeX`" }]
 (* Exported symbols added here with SymbolName::usage *) 
 
