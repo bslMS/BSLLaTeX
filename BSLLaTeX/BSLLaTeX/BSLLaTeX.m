@@ -10,7 +10,7 @@
 (* :Mathematica Version: 11.1 *)
 (* :Copyright: (c) 2017 Guido W. Reichert *)
 
-BeginPackage["BSLLaTeX`", { "MaTeX`" }]
+BeginPackage["BSLLaTeX`", { "MaTeX`" }] (* MaTeX may not be really needed, keeping making this independent *)
 (* Exported symbols added here with SymbolName::usage *) 
 
 LaTeXFigure::usage = "\
@@ -33,6 +33,9 @@ LaTeXTableForm[strArray] will return the array of strings in a form that can be 
 LaTeXCompile::usage = "\
 LaTeXCompile[filename] runs pdflatex to compile the texfile."
 
+Slots::usage = "\
+Slots[template] will return the named slots of a template object."
+
 Begin["`Private`"]
 (* Implementation of the package *)
 
@@ -49,6 +52,13 @@ $LaTeXRules = {
 	"->"						-> "$\\rightarrow$",
 	"=>"						-> "$\\implies$"
 }
+
+(* expand TemplateObject *)
+Unprotect[ System`TemplateObject ]
+
+System`TemplateObject/: Slots[ template_System`TemplateObject ] := Cases[ template, TemplateSlot[ name_ ] :> name, Infinity ]
+
+Protect[ System`TemplateObject ]
 
 Options[ LaTeXFigure ] = {
 	"FigurePlacement" 	-> "htb",
