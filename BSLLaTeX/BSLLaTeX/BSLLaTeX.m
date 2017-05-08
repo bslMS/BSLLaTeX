@@ -211,7 +211,7 @@ LaTeXTabulary[ assoc : { __Association }, opts:OptionsPattern[] ] /; ArrayQ @ as
     		StringJoin[
             		"`tymin`",
             		"`tymax`",
-                	"\\begin{tablulary}{`tablewidth`}{`tablespec`}\n",
+                	"\\begin{tabulary}{`tablewidth`}{`tablespec`}\n",
                 	"\\toprule\n",
                 	"`header`",
                 	"\\midrule\n",
